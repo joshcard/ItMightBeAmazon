@@ -63,7 +63,8 @@ namespace ItMightBeAmazon.Models
                     {
                         Title = "American Ulysses",
                         AuthorLastName = "White",
-                        AuthorFirstName = "Ronald C.",
+                        AuthorFirstName = "Ronald",
+                        AuthorMiddleInitial = "C.",
                         Publisher = "Random House",
                         ISBN = "978-0812981254",
                         Classification = "Non-Fiction",

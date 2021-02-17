@@ -15,6 +15,7 @@ namespace ItMightBeAmazon.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthorLastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthorFirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    AuthorMiddleInitial = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Publisher = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ISBN = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Classification = table.Column<string>(type: "nvarchar(max)", nullable: false),

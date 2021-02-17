@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ItMightBeAmazon.Migrations
 {
     [DbContext(typeof(BookSiteDbContext))]
-    [Migration("20210217053815_Initial")]
+    [Migration("20210217174229_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,9 @@ namespace ItMightBeAmazon.Migrations
 
                     b.Property<string>("AuthorLastName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("AuthorMiddleInitial")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Category")

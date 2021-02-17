@@ -4,44 +4,48 @@
 
 @model IQueryable<Book>
 
-<div>
-    <header>
-        <h1>This Might Be Amazon</h1>
-    </header>
-</div>
+    <center>
+        <div>
+            <header>
+                <h1>This Might Be Amazon</h1>
+            </header>
+        </div>
+    </center>
 
-<div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Book Title</th>
-                <th scope="col">Author Last Name</th>
-                <th scope="col">Author First Name</th>
-                <th scope="col">Publisher</th>
-                <th scope="col">ISBN</th>
-                <th scope="col">Classification</th>
-                <th scope="col">Category</th>
-                <th scope="col">Price</th>
-            </tr>
-        </thead>
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Book Title</th>
+                    <th scope="col">Author Last Name</th>
+                    <th scope="col">Author First Name</th>
+                    <th scope="col">Author Middle Initial</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">ISBN</th>
+                    <th scope="col">Classification</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
 
 
-        <tbody>
+            <tbody>
 
-            @foreach (var x in Model)
-            {
-            <tr>
-                <td>@x.Title</td>
-                <td>@x.AuthorLastName</td>
-                <td>@x.AuthorFirstName</td>
-                <td>@x.Publisher</td>
-                <td>@x.ISBN</td>
-                <td>@x.Classification</td>
-                <td>@x.Category</td>
-                <td>$@x.Price</td>
-            </tr>
-            }
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.Title</td>
+                        <td>@x.AuthorLastName</td>
+                        <td>@x.AuthorFirstName</td>
+                        <td>@x.AuthorMiddleInitial</td>
+                        <td>@x.Publisher</td>
+                        <td>@x.ISBN</td>
+                        <td>@x.Classification</td>
+                        <td>@x.Category</td>
+                        <td>$@x.Price</td>
+                    </tr>
+                }
 
-        </tbody>
-    </table>
-</div>
+            </tbody>
+        </table>
+    </div>

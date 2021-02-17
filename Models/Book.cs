@@ -20,6 +20,8 @@ namespace ItMightBeAmazon.Models
         [Required]
         public string AuthorFirstName { get; set; }
 
+        public string AuthorMiddleInitial { get; set; }
+
         [Required]
         public string Publisher { get; set; }
 
