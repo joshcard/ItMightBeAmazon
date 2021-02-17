@@ -27,6 +27,7 @@ namespace ItMightBeAmazon
         {
             services.AddControllersWithViews();
 
+            //configure the database
             services.AddDbContext<BookSiteDbContext>(options =>
             {
                 options.UseSqlServer(Configuration["ConnectionStrings:BookSiteConnection"]);
@@ -62,6 +63,7 @@ namespace ItMightBeAmazon
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
 
+            //add the SeedData
             SeedData.EnsurePopulated(app);
         }
     }

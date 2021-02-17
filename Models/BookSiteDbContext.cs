@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItMightBeAmazon.Models
 {
+    //context that inherits from DbContext
     public class BookSiteDbContext : DbContext
     {
         public BookSiteDbContext (DbContextOptions<BookSiteDbContext> options) : base (options)

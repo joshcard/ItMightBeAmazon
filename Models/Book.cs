@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ItMightBeAmazon.Models
 {
+    //model for Books with a primary key, and all fields required except for the author's middle initial.
     public class Book
     {
         [Key]
@@ -25,8 +26,9 @@ namespace ItMightBeAmazon.Models
         [Required]
         public string Publisher { get; set; }
 
+        //Regex to ensure that the ISBN is entered in the correct format.
         [Required]
-        [RegularExpression(@"\d{3}-?\d{10}", ErrorMessage = "ISBN entered incorrectly, please use this format: 000-0000000000")]
+        [RegularExpression(@"\d{3}-\d{10}", ErrorMessage = "ISBN entered incorrectly, please use this format: 000-0000000000")]
         public string ISBN { get; set; }
 
         [Required]

@@ -14,11 +14,13 @@ namespace ItMightBeAmazon.Models
         {
             BookSiteDbContext context = application.ApplicationServices.CreateScope().ServiceProvider.GetRequiredService<BookSiteDbContext>();
 
+            //get the pending migrations and migrate them to the database
             if(context.Database.GetPendingMigrations().Any())
             {
                 context.Database.Migrate();
             }
 
+            //Seed the data for the database
             if(!context.Books.Any())
             {
                 context.Books.AddRange(
@@ -146,6 +148,7 @@ namespace ItMightBeAmazon.Models
 
                 );
 
+                //save the changes to the database
                 context.SaveChanges();
             }
         }

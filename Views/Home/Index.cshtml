@@ -4,6 +4,8 @@
 
 @model IQueryable<Book>
 
+
+<!--Title for the page-->
     <center>
         <div>
             <header>
@@ -12,8 +14,12 @@
         </div>
     </center>
 
+
+<!--Table to display book info-->
     <div>
         <table class="table">
+
+            <!--Table header-->
             <thead>
                 <tr>
                     <th scope="col">Book Title</th>
@@ -28,7 +34,7 @@
                 </tr>
             </thead>
 
-
+            <!--foreach loop to display all of the data for each book on separate rows-->
             <tbody>
 
                 @foreach (var x in Model)

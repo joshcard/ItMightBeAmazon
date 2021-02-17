@@ -13,14 +13,17 @@ namespace ItMightBeAmazon.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+        //create a private variable _repository
         private IBookRepository _repository;
 
+        //grab the object from the IBookRepository and save it to _repository
         public HomeController(ILogger<HomeController> logger, IBookRepository repository)
         {
             _logger = logger;
             _repository = repository;
         }
 
+        //pass the books from _repository to the view
         public IActionResult Index()
         {
             return View(_repository.Books);
