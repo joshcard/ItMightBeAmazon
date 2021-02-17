@@ -31,6 +31,9 @@ namespace ItMightBeAmazon.Models
         public string Classification { get; set; }
 
         [Required]
+        public string Category { get; set; }
+
+        [Required]
         public double Price { get; set; }
     }
 }
