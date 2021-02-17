@@ -5,53 +5,57 @@
 @model IQueryable<Book>
 
 
+<div class="text-center">
+    <img src="~/img/Books.jpg" width="500" />
+</div>
+
 <!--Title for the page-->
-    <center>
-        <div>
-            <header>
-                <h1>This Might Be Amazon</h1>
-            </header>
-        </div>
-    </center>
+<center>
+    <div>
+        <header>
+            <h1>This Might Be Amazon</h1>
+        </header>
+    </div>
+</center>
 
 
 <!--Table to display book info-->
-    <div>
-        <table class="table">
+<div>
+    <table class="table">
 
-            <!--Table header-->
-            <thead>
+        <!--Table header-->
+        <thead>
+            <tr>
+                <th scope="col">Book Title</th>
+                <th scope="col">Author Last Name</th>
+                <th scope="col">Author First Name</th>
+                <th scope="col">Author Middle Initial</th>
+                <th scope="col">Publisher</th>
+                <th scope="col">ISBN</th>
+                <th scope="col">Classification</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+            </tr>
+        </thead>
+
+        <!--foreach loop to display all of the data for each book on separate rows-->
+        <tbody>
+
+            @foreach (var x in Model)
+            {
                 <tr>
-                    <th scope="col">Book Title</th>
-                    <th scope="col">Author Last Name</th>
-                    <th scope="col">Author First Name</th>
-                    <th scope="col">Author Middle Initial</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">ISBN</th>
-                    <th scope="col">Classification</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Price</th>
+                    <td>@x.Title</td>
+                    <td>@x.AuthorLastName</td>
+                    <td>@x.AuthorFirstName</td>
+                    <td>@x.AuthorMiddleInitial</td>
+                    <td>@x.Publisher</td>
+                    <td>@x.ISBN</td>
+                    <td>@x.Classification</td>
+                    <td>@x.Category</td>
+                    <td>$@x.Price</td>
                 </tr>
-            </thead>
+            }
 
-            <!--foreach loop to display all of the data for each book on separate rows-->
-            <tbody>
-
-                @foreach (var x in Model)
-                {
-                    <tr>
-                        <td>@x.Title</td>
-                        <td>@x.AuthorLastName</td>
-                        <td>@x.AuthorFirstName</td>
-                        <td>@x.AuthorMiddleInitial</td>
-                        <td>@x.Publisher</td>
-                        <td>@x.ISBN</td>
-                        <td>@x.Classification</td>
-                        <td>@x.Category</td>
-                        <td>$@x.Price</td>
-                    </tr>
-                }
-
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
+</div>
