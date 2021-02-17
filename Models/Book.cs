@@ -24,7 +24,7 @@ namespace ItMightBeAmazon.Models
         public string Publisher { get; set; }
 
         [Required]
-        [RegularExpression(@"\d{3}-?\d{10}")]
+        [RegularExpression(@"\d{3}-?\d{10}", ErrorMessage = "ISBN entered incorrectly, please use this format: 000-0000000000")]
         public string ISBN { get; set; }
 
         [Required]
