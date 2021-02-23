@@ -17,6 +17,6 @@ namespace ItMightBeAmazon.Models
         }
 
         //creates the IQueryable to be used in the view
-        public IQueryable<Book> Books => _context.Books;
+        public IQueryable<Book> Books => _context.Books; 
     }
 }
