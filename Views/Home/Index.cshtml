@@ -2,6 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
+<!--bring in the BookListViewModel which contains the Books and the paging info-->
 @model BookListViewModel 
 
 
@@ -62,6 +63,7 @@
     </table>
 </div>
 
+<!--div for page navigation buttons-->
 <div page-model="@Model.PagingInfo" page-action="index" page-classes-enabled="true" page-class="btn"
      page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary"

@@ -56,6 +56,7 @@ namespace ItMightBeAmazon
 
             app.UseAuthorization();
 
+            //end points have been changed to show /P{page} (i.e. /P2 for page 2)
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

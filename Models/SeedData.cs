@@ -156,6 +156,7 @@ namespace ItMightBeAmazon.Models
                         PageNum = 642
                     },
 
+                    //the following three books were added and are some of my favorites
                     new Book
                     {
                         Title = "The Way of Kings",

@@ -17,6 +17,7 @@ namespace ItMightBeAmazon.Controllers
         //create a private variable _repository
         private IBookRepository _repository;
 
+        //PageSize to specify how many books there should be per page
         public int PageSize = 5;
 
         //grab the object from the IBookRepository and save it to _repository
@@ -27,15 +28,18 @@ namespace ItMightBeAmazon.Controllers
         }
 
         //pass the books from _repository to the view
+        //pass a parameter for page, if nothing is passed use 1
         public IActionResult Index(int page = 1)
         {
             return View(new BookListViewModel
             {
+                //Linq statement grabing the book info for pagination
                 Books = _repository.Books
                     .OrderBy(p => p.BookId)
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize)
                 ,
+                //PagingInfo passed in for pagination
                 PagingInfo = new PagingInfo
                 {
                     CurrentPage = page,

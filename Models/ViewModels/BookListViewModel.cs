@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace ItMightBeAmazon.Models.ViewModels
 {
+    //this is the class that will be passed into views
     public class BookListViewModel
     {
         public IEnumerable<Book> Books { get; set; }
