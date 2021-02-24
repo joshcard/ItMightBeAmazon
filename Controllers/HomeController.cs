@@ -1,4 +1,5 @@
 ﻿using ItMightBeAmazon.Models;
+using ItMightBeAmazon.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -16,6 +17,8 @@ namespace ItMightBeAmazon.Controllers
         //create a private variable _repository
         private IBookRepository _repository;
 
+        public int PageSize = 5;
+
         //grab the object from the IBookRepository and save it to _repository
         public HomeController(ILogger<HomeController> logger, IBookRepository repository)
         {
@@ -24,9 +27,22 @@ namespace ItMightBeAmazon.Controllers
         }
 
         //pass the books from _repository to the view
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
-            return View(_repository.Books);
+            return View(new BookListViewModel
+            {
+                Books = _repository.Books
+                    .OrderBy(p => p.BookId)
+                    .Skip((page - 1) * PageSize)
+                    .Take(PageSize)
+                ,
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalNumItems = _repository.Books.Count()
+                }
+            });
         }
 
         public IActionResult Privacy()
