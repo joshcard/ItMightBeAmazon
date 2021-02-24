@@ -44,7 +44,7 @@ namespace ItMightBeAmazon.Infrastructure
             {
                 TagBuilder tag = new TagBuilder("a");
 
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+                tag.Attributes["href"] = urlHelper.Action(PageAction, new { Page = i });
 
                 if (PageClassesEnabled)
                 {
