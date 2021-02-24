@@ -154,6 +154,45 @@ namespace ItMightBeAmazon.Models
                         Category = "Thrillers",
                         Price = 15.03,
                         PageNum = 642
+                    },
+
+                    new Book
+                    {
+                        Title = "The Way of Kings",
+                        AuthorLastName = "Sanderson",
+                        AuthorFirstName = "Brandon",
+                        Publisher = "TOR",
+                        ISBN = "978-0765326355",
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 23.64,
+                        PageNum = 1007
+                    },
+
+                    new Book
+                    {
+                        Title = "Mistborn: The Final Empire",
+                        AuthorLastName = "Sanderson",
+                        AuthorFirstName = "Brandon",
+                        Publisher = "TOR",
+                        ISBN = "978-0765311788",
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 24.44,
+                        PageNum = 541
+                    },
+
+                    new Book
+                    {
+                        Title = "Oathbringer",
+                        AuthorLastName = "Sanderson",
+                        AuthorFirstName = "Brandon",
+                        Publisher = "TOR",
+                        ISBN = "978-0765326379",
+                        Classification = "Fiction",
+                        Category = "Fantasy",
+                        Price = 23.26,
+                        PageNum = 1248
                     }
 
                 );
