@@ -39,5 +39,8 @@ namespace ItMightBeAmazon.Models
 
         [Required]
         public double Price { get; set; }
+
+        [Required]
+        public int PageNum { get; set; }
     }
 }
