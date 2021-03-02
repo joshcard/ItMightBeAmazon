@@ -9,14 +9,6 @@
     <img src="~/img/Books.jpg" width="500" />
 </div>
 
-<!--Title for the page-->
-<!--<div class="row m-1 p-5">
-    <div class="col-2">
-        <header>
-            <h1>This Might Be Amazon</h1>
-        </header>
-    </div>-->
-
 
 <!--Table to display book info-->
 <div>
@@ -43,6 +35,7 @@
 
             @foreach (var x in Model.Books)
             {
+                <!--partial view for displaying the book summaries-->
                 <partial name="BookSummary" model="x" />
             }
 

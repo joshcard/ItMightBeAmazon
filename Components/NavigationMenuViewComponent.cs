@@ -20,6 +20,7 @@ namespace ItMightBeAmazon.Components
 
         public IViewComponentResult Invoke()
         {
+            //ViewBag for the selected category
             ViewBag.SelectedCategory = RouteData?.Values["category"];
 
             //create partial view to be returned

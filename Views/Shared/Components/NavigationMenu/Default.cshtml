@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<string>
 
+<!--home button above the category filter buttons-->
 <a class="btn btn-block btn-outline-secondary" asp-action="Index" asp-controller="Home"
    asp-route-category="">
     Home
 </a>
 
+<!--dynamically display each category in the database as an option for filtering-->
 @foreach (string category in Model)
 {
+    <!--highlight the primary button (the button that has been selected) for filtering-->
     <a class="btn btn-block @(category == ViewBag.SelectedCategory ? "btn-primary" : "btn-outline-secondary")"
        asp-action="Index" asp-controller="Home"
        asp-route-category="@category"

@@ -58,6 +58,7 @@ namespace ItMightBeAmazon.Infrastructure
             {
                 TagBuilder tag = new TagBuilder("a");
 
+                //set the value of the PageUrlValues page value to i
                 PageUrlValues["page"] = i;
 
                 tag.Attributes["href"] = urlHelper.Action(PageAction, PageUrlValues);

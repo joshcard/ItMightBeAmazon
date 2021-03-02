@@ -12,6 +12,7 @@ namespace ItMightBeAmazon.Models.ViewModels
 
         public PagingInfo PagingInfo { get; set; }
 
+        //current category to assist in filtering by category
         public string CurrentCategory { get; set; }
     }
 }
