@@ -36,7 +36,7 @@ namespace ItMightBeAmazon.Pages
         {
             Book book = repository.Books.FirstOrDefault(p => p.BookId == bookId);
 
-            Cart = HttpContext.Session.GetJson<Cart>("Cart") ?? new Cart();
+            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
 
             Cart.AddItem(book, 1);
 
