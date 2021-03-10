@@ -11,5 +11,8 @@ namespace ItMightBeAmazon.Models.ViewModels
         public IEnumerable<Book> Books { get; set; }
 
         public PagingInfo PagingInfo { get; set; }
+
+        //current category to assist in filtering by category
+        public string CurrentCategory { get; set; }
     }
 }

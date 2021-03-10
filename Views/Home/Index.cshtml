@@ -3,21 +3,11 @@
 }
 
 <!--bring in the BookListViewModel which contains the Books and the paging info-->
-@model BookListViewModel 
-
+@model BookListViewModel
 
 <div class="text-center">
     <img src="~/img/Books.jpg" width="500" />
 </div>
-
-<!--Title for the page-->
-<center>
-    <div>
-        <header>
-            <h1>This Might Be Amazon</h1>
-        </header>
-    </div>
-</center>
 
 
 <!--Table to display book info-->
@@ -45,18 +35,8 @@
 
             @foreach (var x in Model.Books)
             {
-                <tr>
-                    <td>@x.Title</td>
-                    <td>@x.AuthorLastName</td>
-                    <td>@x.AuthorFirstName</td>
-                    <td>@x.AuthorMiddleInitial</td>
-                    <td>@x.Publisher</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.Classification</td>
-                    <td>@x.Category</td>
-                    <td>$@x.Price</td>
-                    <td>@x.PageNum</td>
-                </tr>
+                <!--partial view for displaying the book summaries-->
+                <partial name="BookSummary" model="x" />
             }
 
         </tbody>
@@ -64,9 +44,12 @@
 </div>
 
 <!--div for page navigation buttons-->
-<div page-model="@Model.PagingInfo" page-action="index" page-classes-enabled="true" page-class="btn"
+<div page-model="@Model.PagingInfo" page-action="index"
+     page-classes-enabled="true"
+     page-class="btn"
      page-class-normal="btn-outline-dark"
      page-class-selected="btn-primary"
+     page-url-category="@Model.CurrentCategory"
      class="btn-group pull-right m-1">
 
 </div>

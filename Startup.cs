@@ -56,9 +56,23 @@ namespace ItMightBeAmazon
 
             app.UseAuthorization();
 
-            //end points have been changed to show /P{page} (i.e. /P2 for page 2)
+            //end points have been changed to show /P{page} (i.e. /P2 for page 2), 
+            //and allow for the category and page to be input into the url as well as just the category or page.
+            //endpoints also display the category in the url once the user has used it to filter results
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute("catpage",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("page",
+                    "{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute("category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
                 endpoints.MapControllerRoute(
                     "pagination",
                     "/P{page}",
