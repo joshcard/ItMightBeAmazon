@@ -28,7 +28,7 @@ namespace ItMightBeAmazon.Models
             }
             else
             {
-                line.Quantity = +qty;
+                line.Quantity += qty;
             }
         }
 

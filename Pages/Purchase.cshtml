@@ -5,4 +5,43 @@
 @{
 }
 
+<h2>Your Cart</h2>
+
+<!--table to display what is in your cart-->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Book Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Subtotal</th>
+        </tr>
+    </thead>
+
+    <!--loop through each item in your cart-->
+    <tbody>
+        @foreach (var line in Model.Cart.Lines)
+        {
+            <tr>
+                <td class="text-left">@line.Book.Title</td>
+                <td class="text-left">@line.Quantity</td>
+                <td class="text-left">@line.Book.Price</td>
+                <td class="text-left">@((line.Quantity * line.Book.Price).ToString("c"))</td>
+            </tr>
+        }
+    </tbody>
+
+    <!--table footer for the total in the cart-->
+    <tfoot>
+        <tr>
+            <td class="text-right" colspan="3">Total:</td>
+            <td class="text-right">@Model.Cart.ComputeTotalSum().ToString("c")</td>
+        </tr>
+    </tfoot>
+</table>
+
+<!--button to return and keep shopping-->
+<div class="text-center">
+    <a class="btn btn-primary" href="@Model.ReturnUrl">Continue Shopping</a>
+</div>
 
