@@ -29,7 +29,7 @@ namespace ItMightBeAmazon.Controllers
 
         //pass the books from _repository to the view
         //pass a parameter for page, if nothing is passed use 1
-        public IActionResult Index(string category, int page = 1)
+        public IActionResult Index(string category, int pageNum = 1)
         {
             return View(new BookListViewModel
             {
@@ -38,13 +38,13 @@ namespace ItMightBeAmazon.Controllers
                     //filter the books by category
                     .Where(b => category == null || b.Category == category)
                     .OrderBy(p => p.BookId)
-                    .Skip((page - 1) * PageSize)
+                    .Skip((pageNum - 1) * PageSize)
                     .Take(PageSize)
                 ,
                 //PagingInfo passed in for pagination
                 PagingInfo = new PagingInfo
                 {
-                    CurrentPage = page,
+                    CurrentPage = pageNum,
                     ItemsPerPage = PageSize,
                     //ensure that the correct number of pages is displayed depending on if there has been any filtering by category
                     TotalNumItems = category == null ? _repository.Books.Count() : _repository.Books.Where(x => x.Category == category).Count()
