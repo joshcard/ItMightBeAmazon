@@ -30,10 +30,19 @@ namespace ItMightBeAmazon
             //configure the database
             services.AddDbContext<BookSiteDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:BookSiteConnection"]);
+                options.UseSqlite(Configuration["ConnectionStrings:BookSiteConnection"]);
             });
 
             services.AddScoped<IBookRepository, EFBookRepository>();
+
+            //Allows the use of Razor Pages
+            services.AddRazorPages();
+
+            //These two services allow us to use sessions for the cart
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,6 +88,9 @@ namespace ItMightBeAmazon
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapDefaultControllerRoute();
+
+                //enpoint for razor pages
+                endpoints.MapRazorPages();
             });
 
             //add the SeedData
