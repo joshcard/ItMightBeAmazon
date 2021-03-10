@@ -27,6 +27,7 @@
                 <th scope="col">Category</th>
                 <th scope="col">Price</th>
                 <th scope="col">Number of Pages</th>
+                <th scope="col"></th>
             </tr>
         </thead>
 
@@ -35,8 +36,10 @@
 
             @foreach (var x in Model.Books)
             {
-                <!--partial view for displaying the book summaries-->
-                <partial name="BookSummary" model="x" />
+                <tr>
+                    <!--partial view for displaying the book summaries-->
+                    <partial name="BookSummary" model="x" />
+                </tr>
             }
 
         </tbody>

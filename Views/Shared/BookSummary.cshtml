@@ -1,15 +1,26 @@
 ﻿@model Book
 
 <!--partial view to display the book summaries on the index.cshtml page-->
-<tr>
-    <td>@Model.Title</td>
-    <td>@Model.AuthorLastName</td>
-    <td>@Model.AuthorFirstName</td>
-    <td>@Model.AuthorMiddleInitial</td>
-    <td>@Model.Publisher</td>
-    <td>@Model.ISBN</td>
-    <td>@Model.Classification</td>
-    <td>@Model.Category</td>
-    <td>$@Model.Price</td>
-    <td>@Model.PageNum</td>
-</tr>
+
+<td>@Model.Title</td>
+<td>@Model.AuthorLastName</td>
+<td>@Model.AuthorFirstName</td>
+<td>@Model.AuthorMiddleInitial</td>
+<td>@Model.Publisher</td>
+<td>@Model.ISBN</td>
+<td>@Model.Classification</td>
+<td>@Model.Category</td>
+<td>$@Model.Price</td>
+<td>@Model.PageNum</td>
+<!--form and button to allow for purchase (adding to cart)-->
+<td>
+    <form id="@Model.BookId" asp-page="/Purchase" method="post">
+        <input type="hidden" asp-for="BookId" />
+        <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+        <span class="card-text p-1">
+            <button type="submit" class="btn-success btn-small pull-right" style="float:right">
+                Purchase
+            </button>
+        </span>
+    </form>
+</td>

@@ -61,6 +61,9 @@ namespace ItMightBeAmazon
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
+            //set up a session upon startup
+            app.UseSession();
+
             app.UseRouting();
 
             app.UseAuthorization();
