@@ -1,6 +1,7 @@
 using ItMightBeAmazon.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -41,6 +42,10 @@ namespace ItMightBeAmazon
             //These two services allow us to use sessions for the cart
             services.AddDistributedMemoryCache();
             services.AddSession();
+
+            //These services connect things to our SessionCart class to allow for the overriding of the methods in the Cart class.
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 
         }

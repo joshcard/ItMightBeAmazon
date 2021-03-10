@@ -14,9 +14,10 @@ namespace ItMightBeAmazon.Pages
         private IBookRepository repository;
 
         //Constructor
-        public PurchaseModel(IBookRepository repo)
+        public PurchaseModel(IBookRepository repo, Cart cartService)
         {
             repository = repo;
+            Cart = cartService;
         }
 
         //Properties of the class
@@ -28,7 +29,6 @@ namespace ItMightBeAmazon.Pages
         public void OnGet(string returnUrl)
         {
             ReturnUrl = returnUrl ?? "/";
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
         }
 
         //Post method
@@ -36,11 +36,16 @@ namespace ItMightBeAmazon.Pages
         {
             Book book = repository.Books.FirstOrDefault(p => p.BookId == bookId);
 
-            Cart = HttpContext.Session.GetJson<Cart>("cart") ?? new Cart();
-
             Cart.AddItem(book, 1);
 
-            HttpContext.Session.SetJson("cart", Cart);
+            return RedirectToPage(new { returnUrl = returnUrl });
+        }
+
+        //method for removing an item from the cart
+        public IActionResult OnPostRemove(long bookId, string returnUrl)
+        {
+            Cart.RemoveLine(Cart.Lines.First(cl =>
+                cl.Book.BookId == bookId).Book);
 
             return RedirectToPage(new { returnUrl = returnUrl });
         }
