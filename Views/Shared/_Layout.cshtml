@@ -6,6 +6,8 @@
     <title>@ViewData["Title"] - ItMightBeAmazon</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <!--bring int he font-awesome library to be used for the cart icon-->
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
 </head>
 <body>
     <header>
@@ -27,6 +29,17 @@
             </div>
         </nav>
     </header>
+    <div class="bg-dark text-white p-2">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col navbar-brand">IT MIGHT BE AMAZON</div>
+                <div class="col-6 text-right">
+                    <!--Displays the CartSummaryViewComponent-->
+                    <vc:cart-summary/>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--title for the site-->
     <div class="row m-1 p-1">
